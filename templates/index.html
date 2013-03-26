@@ -37,6 +37,7 @@ body {
 <body>
 
 <h1>When Can I See The ISS?</h1>
+<p>The brighter, the easier to see! Check the time, direction, and look for the ISS</p>
 <div id='panels'>
   Loading .. (ensure you've allowed location checking too!)
 </div>
@@ -59,7 +60,6 @@ body {
         var renderTemplate = function(data) {
             // Get the highest bright point for a baseline.
             var brightest = Math.abs(_.max(_.pluck(data.passes, "brightness")));
-            console.log(brightest);
 
             var $panels = $("#panels");
             $panels.html("");
@@ -71,8 +71,6 @@ body {
                     opacity: opacity
                 });
 
-                console.log(pass);
-                console.log(opacity);
                 $panels.append(template(pass));
             });
         };

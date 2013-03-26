@@ -50,7 +50,7 @@ def get_timezone(conf, lat, lng):
     # askgeo api helper.
     params = {
         'databases': 'TimeZone',
-        'points': '{},{}'.format(lat, lng),
+        'points': '%s,%s' % (lat, lng),
     }
     req = requests.get(
         "http://api.askgeo.com/v1/{0}/{1}/query.json"
