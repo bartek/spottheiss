@@ -64,6 +64,7 @@ def get_timezone(conf, lat, lng):
             tz['ShortName'] = 'EST'
 
         return tz
+    req.reason = req.content
     req.raise_for_status()
 
 def heavens_to_object(satid, lat, lng, tz):
@@ -84,6 +85,7 @@ def heavens_to_object(satid, lat, lng, tz):
     if req.status_code == requests.codes.ok:
         parser.feed(req.content)
         return parser.passes
+    req.reason = req.content
     req.raise_for_status()
 
 if __name__ == "__main__":
